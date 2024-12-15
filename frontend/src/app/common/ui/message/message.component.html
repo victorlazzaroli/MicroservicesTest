@@ -1,0 +1,22 @@
+
+
+<div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{message().title || ''}}</h5>
+    <div class="text-end">
+        <span lass="text-sm text-slate-400">{{(message().creationDate || ' ') | date }}</span>
+    </div>
+    <p class="font-normal text-black my-3">{{message().text || ''}}</p>
+
+    <div class="border-t-solid border-t-black border-t-2 w-full flex justify-between py-3 items-center">
+        <div class="text-sm text-slate-400">{{message().author || ' '}}</div>
+
+        <div class="flex gap-3">
+            <button class="cursor-pointer border-[1px] border-solid border-slate-400 bg-slate-200 text-slate-700 px-2 py-1 text-sm" (click)="like()">Like ({{message().likes}})</button>
+            <button class="cursor-pointer border-[1px] border-solid border-slate-400 bg-slate-200 text-slate-700 px-2 py-1 text-sm" (click)="dislike()">Dislike ({{message().dislikes}})</button>
+        </div>
+    </div>
+
+</div>
+    
+    

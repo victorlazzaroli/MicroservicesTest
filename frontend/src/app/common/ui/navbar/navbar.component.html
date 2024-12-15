@@ -1,0 +1,41 @@
+<nav class="flex justify-between items-center px-4 py-2 bg-slate-200 border-b-2 border-solid border-slate-600">
+    <a routerLink="/">
+        <div class="px-4 cursor-pointer text-2xl font-bold text-violet-800">
+            Twitter Clone
+        </div>
+    </a>
+
+    @if (authService.isAuthenticated()) {
+        <ul class="list-none flex gap-5 items-center">
+            <li>
+                <a routerLink="/feed" [routerLinkActive]="['font-bold']">
+                    <span class="cursor-pointer">
+                        Feed
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/home" [routerLinkActive]="['font-bold']">
+                    <span class="cursor-pointer">
+                        Home
+                    </span>
+                </a>
+            </li>
+            <li>
+                <span class="block px-4 py-2 border-solid border-black border-[1px] cursor-pointer rounded-sm" (click)="authService.logout()">
+                    Logout
+                </span>
+            </li>
+        </ul>
+    } @else {
+        <ul class="list-none flex gap-3">
+            <li>
+                <a routerLink="/login">
+                    <span class="block px-4 py-2 border-solid border-black border-[1px] cursor-pointer rounded-sm" (click)="authService.login()">
+                        Login
+                    </span>
+                </a>
+            </li>
+        </ul>
+    }
+</nav>

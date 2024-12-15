@@ -1,0 +1,5 @@
+<div class="px-4 w-full flex flex-col gap-4 my-6">
+    @for (item of myMessages(); track item.id) {
+        <app-message [message]="item"></app-message>
+    }
+</div>
