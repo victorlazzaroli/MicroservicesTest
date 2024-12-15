@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
-import { AsyncPipe } from '@angular/common';
 import { map } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, AsyncPipe],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
