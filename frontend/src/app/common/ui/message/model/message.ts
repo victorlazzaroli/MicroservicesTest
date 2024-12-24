@@ -3,8 +3,8 @@ export interface MessageI {
     title: string;
     text: string;
     author: string;
-    creationDate: string;
-    updateDate: string;
+    createdAt: string;
+    updatedAt: string;
     likes: number;
     dislikes: number;
 }
