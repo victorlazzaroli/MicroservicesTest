@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { MessageService } from '../../common/services/message.service';
 import { MessageComponent } from '../../common/ui/message/message.component';
 
@@ -11,5 +11,7 @@ import { MessageComponent } from '../../common/ui/message/message.component';
 export class FeedComponent {
   messageService = inject(MessageService)
 
-
+  constructor() {
+    effect(() => this.messageService.getMessages())
+  }
 }

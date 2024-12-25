@@ -14,7 +14,7 @@ func main() {
 
 	// Define a route for the root URL
 	router.GET("/", func(c *gin.Context) {
-		c.String(200, "Hello, World!")
+		panic("PAnico")
 	})
 
 	message.NewMessageController(router, startup.DB)

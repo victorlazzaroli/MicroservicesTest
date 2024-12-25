@@ -1,5 +1,10 @@
-<div class="px-4 w-full flex flex-col gap-4 my-6">
-    @for (item of myMessages(); track item.id) {
-        <app-message [message]="item"></app-message>
-    }
+<div class="h-[calc(100vh-100px)] flex flex-col">
+    <div class="px-4 w-full flex flex-col gap-4 my-6 flex-grow">
+        @for (item of messageService.messages(); track item.id) {
+            <app-message [message]="item"></app-message>
+        }
+    </div>
+    <div class="px-4 w-full">
+        <app-new-message (submit)="createMessage($event)"></app-new-message>
+    </div>
 </div>
