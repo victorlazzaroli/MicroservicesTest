@@ -1,4 +1,9 @@
 {
+    "/api/auth": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {"^/api/auth": "/auth"}
+    },
     "/api": {
         "target": "http://localhost:8080",
         "secure": false,

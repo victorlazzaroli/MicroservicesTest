@@ -11,9 +11,12 @@ import { map } from 'rxjs';
 })
 export class NavbarComponent {
   authService = inject(AuthService)
-
+  
   route = inject(ActivatedRoute)
-
+  
+  logout() {
+    this.authService.logout().subscribe()
+  }
   active = this.route.url
   .pipe(
     map(urlSegments => {
