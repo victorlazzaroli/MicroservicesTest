@@ -1,4 +1,4 @@
-module github.com/victorlazzaroli/microservicesTest/auth
+module github.com/victorlazzaroli/microservicesTest/message
 
 go 1.23.3
 

@@ -1,12 +1,12 @@
 package message
 
 import (
-	"github.com/victorlazzaroli/microservicesTest/auth/api/message/dto"
-	"github.com/victorlazzaroli/microservicesTest/auth/api/message/model"
+	"github.com/victorlazzaroli/microservicesTest/message/api/message/dto"
+	"github.com/victorlazzaroli/microservicesTest/message/api/message/model"
 )
 
 type MessageServiceI interface {
-	CreateMessage(request *dto.CreateMessageRequest) error
+	CreateMessage(request *dto.CreateMessageRequest, userInContext any) error
 	DeleteMessage(request int) error
 	GetMessage(request int) (model.Message, error)
 	GetMessages(authorId int) ([]model.Message, error)
@@ -31,7 +31,7 @@ func (s *serviceMessage) GetMessages(authorId int) ([]model.Message, error) {
 	return s.repository.GetAllByAuthor(authorId)
 }
 
-func (s *serviceMessage) CreateMessage(request *dto.CreateMessageRequest) error {
+func (s *serviceMessage) CreateMessage(request *dto.CreateMessageRequest, userInContext any) error {
 
 	var tags []model.Tag
 	for _, tag := range request.Tags {

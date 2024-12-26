@@ -5,7 +5,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/victorlazzaroli/microservicesTest/auth/api/message/dto"
+	"github.com/victorlazzaroli/microservicesTest/message/api/message/dto"
+	"github.com/victorlazzaroli/microservicesTest/message/middleware"
 	"gorm.io/gorm"
 )
 
@@ -110,7 +111,9 @@ func (m *messageController) SaveMessage(ctx *gin.Context) {
 		return
 	}
 
-	if err := m.service.CreateMessage(&message); err != nil {
+	userInContext, _ := ctx.Get("user")
+
+	if err := m.service.CreateMessage(&message, userInContext); err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
@@ -125,7 +128,7 @@ func NewMessageController(engine *gin.Engine, db *gorm.DB) MessageControllerI {
 		service: service,
 	}
 
-	api := engine.Group("messages")
+	api := engine.Group("messages", middleware.AuthGuard)
 	{
 		api.GET("author/:id", controller.GetAllAuthorMessages)
 

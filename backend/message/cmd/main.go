@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/victorlazzaroli/microservicesTest/auth/api/message"
-	"github.com/victorlazzaroli/microservicesTest/auth/startup"
+	"github.com/victorlazzaroli/microservicesTest/message/api/message"
+	"github.com/victorlazzaroli/microservicesTest/message/startup"
 )
 
 func main() {

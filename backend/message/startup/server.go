@@ -1,7 +1,7 @@
 package startup
 
 import (
-	"github.com/victorlazzaroli/microservicesTest/auth/api/message/model"
+	"github.com/victorlazzaroli/microservicesTest/message/api/message/model"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
